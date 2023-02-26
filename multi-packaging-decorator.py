@@ -2,6 +2,9 @@ class WarehouseDecorator:
     def __init__(self, material):
         self.material = material
 
+        # The __call__ method enables to write classes
+        # where the instances behave like functions and
+        # can be called like a function.
     def __call__(self, own_function):
         def internal_wrapper(*args, **kwargs):
             print('Wrapping items from {} with {}'.
@@ -41,3 +44,7 @@ pack_fruits('plum', 'pear')
 #
 # Wrapping items from pack_fruits with cardboard
 # We'll pack fruits: ('plum', 'pear')
+
+# Explanation...
+# To make your object callable, the Class need to defined it as one with the
+# __call__ special method.
