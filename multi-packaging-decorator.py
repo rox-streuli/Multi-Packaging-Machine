@@ -15,8 +15,6 @@ class WarehouseDecorator:
         return internal_wrapper
 
 
-# when we call the decorator with args, the function is passed to the __call__
-# method, instead we pass the args to the  __init__ method
 @WarehouseDecorator('kraft')
 def pack_books(*args):
     print("We'll pack books:", args)
@@ -47,5 +45,16 @@ pack_fruits('plum', 'pear')
 # We'll pack fruits: ('plum', 'pear')
 
 # Explanation...
-# To make your object callable, the Class need to defined it as one with the
-# __call__ special method.
+# In Python, decorators can either be functions or classes.
+# In both cases, decorating adds functionality to existing
+# functions. When we decorate a function with a class, that
+# function becomes an instance of the class. When we define
+# methods in the decorating class, we  can add functionality
+# to the function. This can all be achieved without modifying
+# the original function source code.
+#
+# When we decorate a function with a class, the function is
+# automatically passed as the first argument to the __init__ constructor.
+#
+# By defining the __call__() method, we can call our object,
+# and then unwrap our arguments to process the items.
