@@ -1,4 +1,5 @@
 class WarehouseDecorator:
+    """Packaging decorator for different items."""
     def __init__(self, material):
         self.material = material
 
